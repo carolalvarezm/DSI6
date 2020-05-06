@@ -19,7 +19,7 @@ for (const [name, image] of Object.entries(players)) {
 };
 
 const startRace = () => {
-    timer = setInterval(() => startIteration(), 1000 / 60);
+    timer = setInterval(() => startIteration(), (1000 / 60));
     botonStart.disabled = true;
     botonRestart.disabled = true;
 };

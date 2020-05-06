@@ -2,7 +2,6 @@ export class KartPlayer extends HTMLElement {
     constructor(name, config) {
         super();
 
-        console.log(config["image"])
         this.name = name;
         this.y = config["y"];
         this.x = 0;
@@ -10,24 +9,25 @@ export class KartPlayer extends HTMLElement {
         this.img = config["image"];
 
         this.attachShadow({ mode: 'open' });
+        this.render();
     }
 
     addToRoad(road) {
         road.appendChild(this);
-        this.render();
     }
 
 
     inc() {
         this.x = this.x + this.setSpeed()
-        this.style.setProperty("--var-x", `${this.x}px`);
-        this.style.setProperty("--var-y", `${this.y}px`);
-        this.render();
+        this.style.setProperty("--x", `${this.x}px`);
+        this.style.setProperty("--y", `${this.y}px`);
     }
 
     //La velocidad se pondrá a un número entre 20 y 101
     setSpeed() {
-        return Math.random() * (101 - 20) + 20;
+        const aux = Math.random() * (20 - 5) + 5;
+        console.log(aux);
+        return aux;
     }
 
     isWinner() {
@@ -42,6 +42,11 @@ export class KartPlayer extends HTMLElement {
     }
     restart() {
         this.x = 0;
+        this.style.setProperty("--x", `${this.x}px`);
+
+        this.classList.remove("win")
+        this.classList.remove("lose")
+
         this.render();
     }
 
@@ -54,16 +59,17 @@ export class KartPlayer extends HTMLElement {
              display: inline-block;
              left: 0;
              top: ${this.y}px;
-             transform: translateX(var(--x)) translateY(var(--y));
+             transform: translateX(var(--x));
              transition: transform 0.25s;
              will-change: transform;
            }
-           :host-context(.win) {
-                filter:drop_shadow(0,0,6px,gold);
+           :host(.win) {
+                filter:drop_shadow(0,0,10px,yellow);
                 z-index:5;
             }
-            :host-context(.lose) {
+           :host(.lose) {
                 opacity:0.25;
+                z-index:5;
             }
          `;
     }
