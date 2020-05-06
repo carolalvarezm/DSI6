@@ -5,7 +5,6 @@ export class KartPlayer extends HTMLElement {
         this.name = name;
         this.y = config["y"];
         this.x = 0;
-
         this.img = config["image"];
 
         this.attachShadow({ mode: 'open' });
@@ -19,15 +18,15 @@ export class KartPlayer extends HTMLElement {
 
     inc() {
         this.x = this.x + this.setSpeed()
+        console.log(`x de ${this.name}: ${this.x}`)
         this.style.setProperty("--x", `${this.x}px`);
-        this.style.setProperty("--y", `${this.y}px`);
+
+
     }
 
-    //La velocidad se pondrá a un número entre 20 y 101
+    //La velocidad se pondrá a un número entre 5 y 20
     setSpeed() {
-        const aux = Math.random() * (20 - 5) + 5;
-        console.log(aux);
-        return aux;
+        return Math.floor(Math.random() * (50 - 5) + 5);
     }
 
     isWinner() {
@@ -42,14 +41,14 @@ export class KartPlayer extends HTMLElement {
     }
     restart() {
         this.x = 0;
-        this.style.setProperty("--x", `${this.x}px`);
 
         this.classList.remove("win")
         this.classList.remove("lose")
 
-        this.render();
-    }
+        this.style.setProperty("--x", `${this.x}px`);
 
+
+    }
 
 
     get styles() {
@@ -60,16 +59,15 @@ export class KartPlayer extends HTMLElement {
              left: 0;
              top: ${this.y}px;
              transform: translateX(var(--x));
-             transition: transform 0.25s;
+             transition: transform 60/1000s;
              will-change: transform;
            }
            :host(.win) {
-                filter:drop_shadow(0,0,10px,yellow);
+                filter:drop-shadow(0 0 6px yellow);
                 z-index:5;
             }
            :host(.lose) {
                 opacity:0.25;
-                z-index:5;
             }
          `;
     }

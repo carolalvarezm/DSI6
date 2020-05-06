@@ -19,3 +19,13 @@ body {
     border-right: 15px solid yellow;
     position: relative;
 }
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    & button {
+        height: 80px;
+        width: 150px;
+    }
+}
