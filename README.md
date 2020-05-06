@@ -3,10 +3,12 @@
 ## Index.js
 * En el index.js lo primero que hacemos es importar las imágenes de los karts:
 ```javascript
-
+import players from "../assets/kart_*.png";
 ```
 * Justo después importamos el componente KartPlayer:
 ```javascript
+import { KartPlayer } from "./KartPlayer.js";
+customElements.define('kart-player', KartPlayer);
 
 ```
 * A continuación creamos los karts pasandole al constructor del componente el nombre y un objeto de configuración que contendrá la imagen y la posición de la coordenada y. Después de crearlos los añadimos al html con el método *addToRoad()*:
