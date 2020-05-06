@@ -14,7 +14,7 @@ for (const [name, image] of Object.entries(players)) {
         y: karts.length * 64
     };
     const kart = new KartPlayer(name, config);
-    road.appendChild(kart);
+    kart.addToRoad(road);
     karts.push(kart);
 };
 
