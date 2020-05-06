@@ -1,0 +1,26 @@
+{
+    "name": "dsi-p5-mkart",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "clean": "rm -rf dist package-lock.json node_modules",
+        "start": "parcel src/index.html --port 8080",
+        "build": "parcel build src/index.html -d build --public-url /dsi-p5-mkart-alu0100944723/",
+        "deploy": "npx gh-pages -d build",
+        "prettier": "npx prettier --write src/",
+        "eslint": "npx eslint src/",
+        "eslintfix": "npx eslint src/ --fix",
+        "csslint": "npx stylelint src/css/*.css"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/ULL-ESIT-DSI-1920/dsi-p5-mkart-alu0100944723.git"
+    },
+    "author": "Carolina Álvarez",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/ULL-ESIT-DSI-1920/dsi-p5-mkart-alu0100944723/issues"
+    },
+    "homepage": "https://github.com/ULL-ESIT-DSI-1920/dsi-p5-mkart-alu0100944723#readme"
+}
