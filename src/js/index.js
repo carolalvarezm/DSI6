@@ -1,25 +1,27 @@
-import players from "../assets/kart-*.png";
+import players from "../assets/kart_*.png";
 import { KartPlayer } from "./KartPlayer.js";
+customElements.define('kart-player', KartPlayer);
 
 const botonStart = document.querySelector(".start");
 const botonRestart = document.querySelector(".restart");
 const road = document.querySelector(".road");
 const karts = [];
+let timer = null;
 
 for (const [name, image] of Object.entries(players)) {
     const config = {
         image,
-        y = karts.length * 64
+        y: karts.length * 64
     };
     const kart = new KartPlayer(name, config);
-    kart.addToRoad(road);
+    road.appendChild(kart);
     karts.push(kart);
 };
 
 const startRace = () => {
-    timer = setInterval(() => startIteration()), 1000 / 60);
-botonStart.disabled = true;
-botonRestart.disabled = true;
+    timer = setInterval(() => startIteration(), 1000 / 60);
+    botonStart.disabled = true;
+    botonRestart.disabled = true;
 };
 
 const endRace = () => {
