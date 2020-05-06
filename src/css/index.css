@@ -5,9 +5,9 @@ body {
 
 .race {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     width: 1024px;
-    height: 700px;
+    height: 500px;
     margin: auto;
 }
 
@@ -23,8 +23,7 @@ body {
 .buttons {
     display: flex;
     justify-content: center;
-    align-items: center;
-    margin-top: 10px;
+    align-items: flex-start;
     & button {
         height: 80px;
         width: 150px;

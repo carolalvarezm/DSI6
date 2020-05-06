@@ -172,5 +172,5 @@ const startIteration = () => {
             `;
     }
 ```
-
-## Reto 1: Item
+![Resultado](https://github.com/ULL-ESIT-DSI-1920/dsi-p5-mkart-alu0100944723/blob/master/src/assets/Resultado.gif)
+## Reto 1: Items
