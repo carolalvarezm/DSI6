@@ -18,15 +18,12 @@ export class KartPlayer extends HTMLElement {
 
     inc() {
         this.x = this.x + this.setSpeed()
-        console.log(`x de ${this.name}: ${this.x}`)
         this.style.setProperty("--x", `${this.x}px`);
-
-
     }
 
-    //La velocidad se pondrá a un número entre 5 y 20
+    //La velocidad se pondrá a un número entre 5 y 50
     setSpeed() {
-        return Math.floor(Math.random() * (50 - 5) + 5);
+        return Math.random() * (50 - 5) + 5;
     }
 
     isWinner() {
